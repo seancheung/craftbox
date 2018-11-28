@@ -1,0 +1,22 @@
+{
+  "editor.wordWrap": "on",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "files.exclude": {
+    "**/node_modules": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true
+  },
+  "files.encoding": "utf8",
+  "javascript.format.enable": false,
+  "eslint.autoFixOnSave": true,
+  "mochaExplorer.nodePath": null,
+  "mochaExplorer.files": "tests/**/*.spec.js",
+  "mochaExplorer.mochaPath": "node_modules/mocha",
+  "mochaExplorer.env": {
+    "NODE_ENV": "test"
+  }
+}

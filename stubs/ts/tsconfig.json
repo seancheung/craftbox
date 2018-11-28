@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "target": "es2017",
+    "module": "commonjs",
+    "outDir": "lib",
+    "sourceMap": true,
+    "removeComments": true,
+    "experimentalDecorators": true
+  },
+  "include": ["src/**/*", "tests/**/*"]
+}

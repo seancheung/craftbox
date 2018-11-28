@@ -1,0 +1,32 @@
+{
+  "name": "craftbox",
+  "version": "0.1.0",
+  "description": "JavaScript/TypeScript project prototype",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "craftbox": "cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/seancheung/craftbox.git"
+  },
+  "keywords": [
+    "scaffold",
+    "prototype",
+    "structure"
+  ],
+  "author": "Sean Cheung",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seancheung/craftbox/issues"
+  },
+  "homepage": "https://github.com/seancheung/craftbox#readme",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "commander": "^2.19.0",
+    "inquirer": "^6.2.0",
+    "recursive-copy": "^2.0.9"
+  }
+}

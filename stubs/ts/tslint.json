@@ -1,0 +1,93 @@
+{
+  "extends": ["tslint:recommended", "tslint-config-prettier", "tslint-consistent-codestyle"],
+  "defaultSeverity": "error",
+  "linterOptions": {
+    "exclude": ["node_modules/**/*", "lib/**/*"]
+  },
+  "rules": {
+    "semicolon": [true, "never"],
+    "quotemark": [true, "single"],
+    "no-default-export": false,
+    "indent": [true, "spaces", 2],
+    "no-invalid-this": true,
+    "no-return-await": true,
+    "promise-function-async": false,
+    "max-classes-per-file": false,
+    "member-access": false,
+    "object-literal-sort-keys": false,
+    "interface-name": false,
+    "unified-signatures": false,
+    "forin": false,
+    "variable-name": [true, "ban-keywords"],
+    "one-variable-per-declaration": false,
+    "file-name-casing": [true, "camel-case"],
+    "trailing-comma": [
+      true,
+      {
+        "multiline": "never",
+        "singleline": "never"
+      }
+    ],
+    "naming-convention": [
+      true,
+      {
+        "type": "default",
+        "format": "camelCase",
+        "leadingUnderscore": "forbid",
+        "trailingUnderscore": "forbid"
+      },
+      {
+        "type": "variable",
+        "modifiers": ["global", "const"],
+        "format": ["camelCase", "UPPER_CASE"]
+      },
+      {
+        "type": "variable",
+        "modifiers": ["export", "const"],
+        "format": "PascalCase"
+      },
+      {
+        "type": "functionVariable",
+        "modifiers": ["export", "const"],
+        "format": "camelCase"
+      },
+      {
+        "type": "parameter",
+        "modifiers": "unused",
+        "leadingUnderscore": "allow"
+      },
+      {
+        "type": "member",
+        "modifiers": "private",
+        "leadingUnderscore": "require"
+      },
+      {
+        "type": "member",
+        "modifiers": "protected",
+        "leadingUnderscore": "require"
+      },
+      {
+        "type": "method",
+        "filter": "^toJSON$",
+        "format": null
+      },
+      {
+        "type": "property",
+        "modifiers": ["public", "static", "const"],
+        "format": "UPPER_CASE"
+      },
+      {
+        "type": "type",
+        "format": "PascalCase"
+      },
+      {
+        "type": "genericTypeParameter",
+        "prefix": "T"
+      },
+      {
+        "type": "enumMember",
+        "format": "PascalCase"
+      }
+    ]
+  }
+}
