@@ -4,7 +4,7 @@
     "watch": "cross-env NODE_ENV=development nodemon -w src -e tj,json src/index.js",
     "test": "cross-env NODE_ENV=test mocha 'tests/**/*.spec.js'",
     "format": "prettier --write \"{src,tests}/**/*.{js,json}\"",
-    "lint": "eslint 'src/**/*.js' 'tests/**/*.js'",
+    "lint": "eslint \"src/**/*.js\" \"tests/**/*.js\"",
     "pretest": "npm run lint",
     "start": "cross-env NODE_ENV=production node src/index.js"
   },

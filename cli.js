@@ -65,6 +65,13 @@ function setup() {
   });
 }
 
+/**
+ * Copy directory
+ *
+ * @param {string} src Source directory
+ * @param {string} dest Target directory
+ * @param {{recursive?: boolean, overwrite?: boolean, symlink?: boolean}} opts Options
+ */
 function copyDir(src, dest, opts) {
   if (!fs.existsSync(dest)) {
     fs.mkdirSync(dest);
@@ -208,9 +215,9 @@ async function craft(dir) {
       info.license = answers.license;
     }
   }
-  package = Object.assign(info, package);
+  const content = JSON.stringify(Object.assign(info, package), null, 2);
   console.log(`About to write to ${path.join(dir, 'package.json')}:`);
-  console.log(JSON.stringify(package, null, 2));
+  console.log(content);
   const { confirm } = await inquire.prompt({
     name: 'confirm',
     type: 'confirm',
@@ -222,13 +229,13 @@ async function craft(dir) {
 
     return;
   }
-  fs.writeFileSync(path.join(dir, 'package.json'), JSON.stringify(package, null, 2), { encoding: 'utf8' });
   const folder = isJs ? 'js' : 'ts';
   await copyDir(path.join(__dirname, 'stubs'), dir);
   await copyDir(path.join(__dirname, 'stubs', folder), dir, {
     overwrite: true,
     recursive: true
   });
+  fs.writeFileSync(path.join(dir, 'package.json'), content, { encoding: 'utf8' });
   fs.mkdirSync(path.join(dir, 'src'));
   if (!isJs) {
     fs.mkdirSync(path.join(dir, 'lib'));
