@@ -5,7 +5,7 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "args": ["${%workspaceFolder%}/src/index.js"],
+      "args": ["${workspaceFolder}/src/index.js"],
       "env": {
         "NODE_ENV": "development"
       }
@@ -14,9 +14,9 @@
       "type": "node",
       "request": "launch",
       "name": "Watch Debug",
-      "runtimeExecutable": "${%workspaceFolder%}/node_modules/.bin/nodemon",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/nodemon",
       "runtimeArgs": ["-w", "src", "-e", "js,json"],
-      "args": ["${%workspaceFolder%}/src/index.js"],
+      "args": ["${workspaceFolder}/src/index.js"],
       "restart": true,
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
@@ -28,14 +28,14 @@
       "type": "node",
       "request": "launch",
       "name": "Mocha Tests",
-      "program": "${%workspaceFolder%}/node_modules/mocha/bin/_mocha",
+      "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
       "args": [
         "-u",
         "tdd",
         "--timeout",
         "999999",
         "--colors",
-        "${%workspaceFolder%}/tests/**/*.spec.js"
+        "${workspaceFolder}/tests/**/*.spec.js"
       ],
       "internalConsoleOptions": "openOnSessionStart",
       "env": {

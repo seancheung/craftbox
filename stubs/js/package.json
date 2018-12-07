@@ -1,7 +1,7 @@
 {
   "scripts": {
     "dev": "cross-env NODE_ENV=development node src/index.js",
-    "watch": "cross-env NODE_ENV=development nodemon -w src -e tj,json src/index.js",
+    "watch": "cross-env NODE_ENV=development nodemon -w src -e js,json src/index.js",
     "test": "cross-env NODE_ENV=test mocha 'tests/**/*.spec.js'",
     "format": "prettier --write \"{src,tests}/**/*.{js,json}\"",
     "lint": "eslint \"src/**/*.js\" \"tests/**/*.js\"",
