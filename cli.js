@@ -154,11 +154,11 @@ async function craft(dir) {
         message: 'entry point',
         default: isJs ? 'src/index.js' : 'lib/index.js'
       },
-      // {
-      //   type: 'input',
-      //   name: 'repository',
-      //   message: 'git repository'
-      // },
+      {
+        type: 'input',
+        name: 'repository',
+        message: 'git repository'
+      },
       {
         type: 'input',
         name: 'keywords',
@@ -197,14 +197,33 @@ async function craft(dir) {
     if (answers.main) {
       info.main = answers.main;
     }
-    // if (answers.repository) {
-    //   info.repository = {
-    //     type: 'git',
-    //     url: 'git+ssh://' + answers.repository
-    //   };
-    //   info.bugs = { url: '' };
-    //   info.homepage = '';
-    // }
+    if (answers.repository) {
+      const match = answers.repository.match(
+        /^(?:https?:\/\/(\w+@)?|git@)([\w.]+)(?:[/:])([\w/]+)\.git$/i
+      );
+      if (match) {
+        const [, username = '', hostname, repo] = match;
+        const ssh = /^git@/i.test(answers.repository);
+        if (/github|gitlab|bitbucket/i.test(hostname)) {
+          info.repository = {
+            type: 'git',
+            url: ssh
+              ? `git+ssh://git@${hostname}/${repo}.git`
+              : `git+https://${username}${hostname}/${repo}.git`
+          };
+          if (/github|gitlab/i.test(hostname)) {
+            info.bugs = { url: `https://${hostname}/${repo}/issues` };
+          }
+          info.homepage = `https://${hostname}/${repo}#readme`;
+        }
+      }
+      if (!info.repository) {
+        info.repository = {
+          type: 'git',
+          url: answers.repository
+        };
+      }
+    }
     if (answers.keywords) {
       info.keywords = answers.keywords.split(',');
     }
